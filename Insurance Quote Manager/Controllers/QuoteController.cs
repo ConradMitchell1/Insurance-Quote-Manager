@@ -18,8 +18,18 @@ namespace Insurance_Quote_Manager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetQuotes([FromQuery]string? searchTerm)
         {
-            var quotes = await _quoteService.GetQuotesAsync(searchTerm);
-            return Ok(quotes);
+            try
+            {
+                var quotes = await _quoteService.GetQuotesAsync(searchTerm);
+                return Ok(quotes);
+            }
+            catch (Exception ex)
+            {
+                // Log to console and return message
+                Console.WriteLine("Exception in GetQuotes: " + ex);
+                return StatusCode(500, new { message = "Internal server error", detail = ex.Message });
+            }
+
         }
 
         [HttpPost]

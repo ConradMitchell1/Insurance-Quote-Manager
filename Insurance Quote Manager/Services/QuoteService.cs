@@ -52,20 +52,29 @@ namespace Insurance_Quote_Manager.Services
 
         public async Task<List<QuoteListItem>> GetQuotesAsync(string? searchTerm)
         {
-            var quotes = await _repo.GetAllAsync(searchTerm);
-            return quotes.Select(q => new QuoteListItem
+            try
             {
-                Id = q.Id,
-                ClientName = q.ClientName,
-                ClientAge = q.ClientAge,
-                CoverageDurationMonths = q.CoverDurationMonths,
-                Email = q.Email,
-                PolicyType = q.PolicyType,
-                TotalPremium = q.TotalPremium,
-                Status = q.Status,
-                StartDate = q.StartDate,
+                var quotes = await _repo.GetAllAsync(searchTerm);
+                return quotes.Select(q => new QuoteListItem
+                {
+                    Id = q.Id,
+                    ClientName = q.ClientName,
+                    ClientAge = q.ClientAge,
+                    CoverageDurationMonths = q.CoverDurationMonths,
+                    Email = q.Email,
+                    PolicyType = q.PolicyType,
+                    TotalPremium = q.TotalPremium,
+                    Status = q.Status,
+                    StartDate = q.StartDate,
 
-            }).ToList();
+                }).ToList();
+            }
+            catch (Exception ex) 
+            {
+                _logger.LogError(ex, "Error while retrieving quotes");
+                throw; // still rethrow to trigger the 500 for now
+            }
+            
         }
 
         public async Task<QuoteModel> GetQuoteByIdAsync(int id)

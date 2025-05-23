@@ -28,6 +28,7 @@ namespace Insurance_Quote_Manager
             });
 
             var app = builder.Build();
+            app.UseRouting();
             app.UseCors("AllowFrontend");
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -35,7 +36,7 @@ namespace Insurance_Quote_Manager
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            //app.UseRouting();
+            
 
             app.UseAuthorization();
 

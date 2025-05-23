@@ -5,9 +5,14 @@ export async function getQuotes(searchQuotes) {
     if (searchQuotes) {
         url.searchParams.append('searchTerm', searchQuotes);
     }
-
     const response = await fetch(url);
-    return response.json();
+
+    if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+    }
+
+    const text = await response.text();
+    return text ? JSON.parse(text) : [];
 }
 
 export async function createQuote(quote) {
