@@ -1,4 +1,4 @@
-const BASE_URL = 'https://localhost:7152/api/Quote';
+const BASE_URL = '"https://insurance-quote-api.azurewebsites.net/api/Quote"';
 
 export async function getQuotes(searchQuotes) {
     const url = new URL(BASE_URL);

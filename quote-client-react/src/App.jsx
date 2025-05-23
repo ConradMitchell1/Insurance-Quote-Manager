@@ -15,7 +15,7 @@ function App() {
 
     useEffect(() => {
         fetchQuotes();
-    }, []);
+    },);
 
     return (
         <div className="page-container">

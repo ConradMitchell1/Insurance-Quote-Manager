@@ -1,10 +1,5 @@
 using Insurance_Quote_Manager.Data;
 using Insurance_Quote_Manager.Extensions;
-using Insurance_Quote_Manager.Interfaces;
-using Insurance_Quote_Manager.Options;
-using Insurance_Quote_Manager.Repository;
-using Insurance_Quote_Manager.Services;
-using Insurance_Quote_Manager.Services.Strategies;
 using Microsoft.EntityFrameworkCore;
 
 namespace Insurance_Quote_Manager
@@ -18,22 +13,22 @@ namespace Insurance_Quote_Manager
             // Add services to the container.
             builder.Services.AddControllers();
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddQuoteServices();
             builder.Services.AddQuoteConfig(builder.Configuration);
 
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowReactDev", policy =>
+                options.AddPolicy("AllowFrontend", policy =>
                 {
-                    policy.WithOrigins("http://localhost:55469")
+                    policy.WithOrigins("http://localhost:55469", "https://insurance-quote-api.azurewebsites.net")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
             });
 
             var app = builder.Build();
-            app.UseCors("AllowReactDev");
+            app.UseCors("AllowFrontend");
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
