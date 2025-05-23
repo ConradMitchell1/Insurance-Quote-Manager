@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insurance Quote Manager", "Insurance Quote Manager\Insurance Quote Manager.csproj", "{599A6197-02D5-4648-B658-EC475B557E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceQuoteManager.Tests", "InsuranceQuoteManager.Tests\InsuranceQuoteManager.Tests.csproj", "{33335BDA-3A1B-4A3F-BE6F-4B319ED0E059}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "quote-client-react", "Quote-Client-React\quote-client-react.esproj", "{D1BE3272-C145-41F1-B939-E7D39A24B78C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{599A6197-02D5-4648-B658-EC475B557E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{599A6197-02D5-4648-B658-EC475B557E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{599A6197-02D5-4648-B658-EC475B557E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{599A6197-02D5-4648-B658-EC475B557E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33335BDA-3A1B-4A3F-BE6F-4B319ED0E059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33335BDA-3A1B-4A3F-BE6F-4B319ED0E059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33335BDA-3A1B-4A3F-BE6F-4B319ED0E059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33335BDA-3A1B-4A3F-BE6F-4B319ED0E059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1BE3272-C145-41F1-B939-E7D39A24B78C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1BE3272-C145-41F1-B939-E7D39A24B78C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1BE3272-C145-41F1-B939-E7D39A24B78C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D1BE3272-C145-41F1-B939-E7D39A24B78C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1BE3272-C145-41F1-B939-E7D39A24B78C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1BE3272-C145-41F1-B939-E7D39A24B78C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
