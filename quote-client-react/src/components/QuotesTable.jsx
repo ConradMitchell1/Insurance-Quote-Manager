@@ -1,3 +1,4 @@
+import { deleteQuote } from '../services/quoteService';
 function QuotesTable({ quotes, onDelete, onEdit }) {
     if (quotes.length === 0) return <p> No quotes found.</p>
     const policyTypeMap = {
@@ -14,16 +15,13 @@ function QuotesTable({ quotes, onDelete, onEdit }) {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`https://insurance-quote-api.azurewebsites.net/api/Quote${id}`, {
-                method: 'DELETE'
-            });
-
+            const response = await deleteQuote(id);
             if (response.ok) {
                 onDelete();
             }
             else {
                 const error = await response.text();
-                console.error('failed to deelte:', error);
+                console.error('failed to delete:', error);
                 alert('Failed to delete quote');
             }
         }

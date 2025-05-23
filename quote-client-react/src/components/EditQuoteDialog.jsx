@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { updateQuote } from '../services/quoteService';
 function EditQuoteDialog({ quote, onClose, onUpdated }) {
     const [form, setForm] = useState({ ...quote });
     const [errors, setErrors] = useState([]);
@@ -9,13 +10,7 @@ function EditQuoteDialog({ quote, onClose, onUpdated }) {
 
     const handleUpdate = async () => {
         try {
-            const response = await fetch(`https://localhost:7152/api/Quote`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(form)
-            });
+            const response = await updateQuote(form);
             if (response.ok) {
                 alert('Quote Updated');
                 onClose();

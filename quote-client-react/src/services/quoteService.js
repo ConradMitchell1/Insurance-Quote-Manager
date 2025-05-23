@@ -34,6 +34,7 @@ export async function updateQuote(quote) {
 }
 
 export async function deleteQuote(id) {
+    alert(id);
     const response = await fetch(`${BASE_URL}/${id}`, {
         method: 'DELETE',
     });
