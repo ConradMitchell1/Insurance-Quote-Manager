@@ -41,6 +41,7 @@ namespace Insurance_Quote_Manager.Extensions
                 errors.Add("ClientName is required");
             }
 
+
             if (request.ClientAge < 18 || request.ClientAge > 100)
             {
                 errors.Add("ClientAge must be at least 18 and below 100");

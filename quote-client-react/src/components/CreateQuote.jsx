@@ -6,7 +6,7 @@ function CreateQuote({ onCreated }) {
     const [form, setForm] = useState({
         clientName: '',
         email: '',
-        clientAge: 0,
+        clientAge: null,
         policyType: 0,
         quoteStatus: 0,
         propertyType: '',
@@ -23,16 +23,22 @@ function CreateQuote({ onCreated }) {
 
     const handleSubmit = async () => {
         try {
+            const age = parseInt(form.clientAge, 10);
+            const validationErrors = [];
+            if (isNaN(age)) {
+                form.clientAge = 10; // Convert before sending
+                validationErrors.push("Client age is required and must be a positive number.");
+            }
             const response = await createQuote(form);
             if (response.ok) {
                 onCreated();
                 setErrors([]);
             } else {
-                const errorJson = await response.json();
-                const validationErrors = [];
+                const errorJson = await response.json()
                 for (const key in errorJson.errors || {}) {
                     validationErrors.push(...errorJson.errors[key]);
                 }
+                form.clientAge = age;
                 setErrors(validationErrors.length ? validationErrors : [errorJson.title]);
             }
         } catch (err) {
@@ -54,7 +60,7 @@ function CreateQuote({ onCreated }) {
             )}
             <input placeholder="Client Name" value={form.clientName} onChange={(e) => handleChange('clientName', e.target.value)} />
             <input placeholder="Email" value={form.email} onChange={(e) => handleChange('email', e.target.value)} />
-            <input type="number" placeholder="Age" value={form.clientAge} onChange={(e) => handleChange('clientAge', e.target.value)} />
+            <input type="number" placeholder="Age" onChange={(e) => handleChange('clientAge', e.target.value)} />
             <select value={form.policyType} onChange={(e) => handleChange('policyType', parseInt(e.target.value))}>
                 {Object.entries(PolicyTypes).map(([value, label]) => (
                     <option key={value} value={value}>{label}</option>
