@@ -21,7 +21,7 @@ namespace Insurance_Quote_Manager
             {
                 options.AddPolicy("AllowFrontend", policy =>
                 {
-                    policy.WithOrigins("http://localhost:55469", "https://insurance-quote-api.azurewebsites.net")
+                    policy.WithOrigins("http://localhost:55469", "https://insurance-quote-api.azurewebsites.net", "https://black-sea-0f3f3b80f.6.azurestaticapps.net")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
