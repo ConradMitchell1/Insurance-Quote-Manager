@@ -13,9 +13,8 @@ function QuotesTable({ quotes, onDelete, onEdit }) {
     };
 
     const handleDelete = async (id) => {
-        //if (!window.confirm("Are you sure you want to delete this quote?")) return;
         try {
-            const response = await fetch(`https://localhost:7152/api/Quote/${id}`, {
+            const response = await fetch(`https://insurance-quote-api.azurewebsites.net/api/Quote${id}`, {
                 method: 'DELETE'
             });
 
@@ -33,6 +32,10 @@ function QuotesTable({ quotes, onDelete, onEdit }) {
             alert('Error deleting quote');
         }
     };
+
+    if (!Array.isArray(quotes)) {
+        return <p>Error loading quotes or invalid data format.</p>;
+    }
 
 
     return (
