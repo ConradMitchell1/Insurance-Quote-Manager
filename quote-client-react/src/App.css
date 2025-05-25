@@ -74,5 +74,5 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* space between inputs */
+    gap: 0.5rem; /* space between inputs */
 }
