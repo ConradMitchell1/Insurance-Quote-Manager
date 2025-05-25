@@ -68,26 +68,28 @@ function QuoteForm({ initialData, onSubmit, onClose, onSuccess, mode = 'create' 
                         </ul>
                     </div>
                 )}
+                <label>Client Name</label>
                 <input placeholder="Client Name" value={form.clientName} onChange={(e) => handleChange('clientName', e.target.value)} />
+                <label>Email</label>
                 <input placeholder="Email" value={form.email} onChange={(e) => handleChange('email', e.target.value)} />
+                <label>Age</label>
                 <input type="number" placeholder="Age" value={form.clientAge} onChange={(e) => handleChange('clientAge', e.target.value)} />
+                <label>Policy Type</label>
                 <select value={form.policyType} onChange={(e) => handleChange('policyType', parseInt(e.target.value))}>
                     {Object.entries(PolicyTypes).map(([value, label]) => (
                         <option key={value} value={value}>{label}</option>
                     ))}
                 </select>
-
-                <select
-                    value={form.quoteStatus}
-                    onChange={(e) => handleChange('quoteStatus', parseInt(e.target.value))}
-                >
+                <label>Quote Status</label>
+                <select value={form.quoteStatus} onChange={(e) => handleChange('quoteStatus', parseInt(e.target.value))}>
                     {Object.entries(QuoteStatuses).map(([value, label]) => (
                         <option key={value} value={value}>{label}</option>
                     ))}
                 </select>
                 {mode === 'create' && (
                     <>
-                    < input type="date" value={form.expiryDate} onChange={(e) => handleChange('expiryDate', e.target.value)} />
+                        <label>Expiry Date</label>
+                        < input type="date" value={form.expiryDate} onChange={(e) => handleChange('expiryDate', e.target.value)} />
                     </>
                 ) }
                 
@@ -105,8 +107,11 @@ function QuoteForm({ initialData, onSubmit, onClose, onSuccess, mode = 'create' 
 
                 {form.policyType === 2 && (
                     <>
+                        <label>Property Type</label>
                         <input placeholder="Property Type" value={form.propertyType} onChange={(e) => handleChange('propertyType', e.target.value)} />
+                        <label>Construction Type</label>
                         <input placeholder="Construction Type" value={form.constructionType} onChange={(e) => handleChange('constructionType', e.target.value)} />
+                        <label>Property Age</label>
                         <input type="number" placeholder="Property Age" value={form.propertyAge} onChange={(e) => handleChange('propertyAge', e.target.value)} />
                     </>
                 )}
