@@ -13,5 +13,8 @@ namespace Insurance_Quote_Manager.Models.DTO
         public decimal TotalPremium { get; set; }
         public QuoteStatus Status { get; set; }
         public DateTime StartDate { get; set; }
+
+        public bool IsSmoker { get; set; }
+        public bool HasChronicIllness { get; set; }
     }
 }

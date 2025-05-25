@@ -93,10 +93,13 @@ function QuoteForm({ initialData, onSubmit, onClose, onSuccess, mode = 'create' 
                 
                 {form.policyType === 0 && (
                     <>
-                        <input type="checkbox" checked={form.isSmoker} onChange={(e) => handleChange('isSmoker', e.target.checked)} />
-                        <label>Is Smoker</label>
-                        <input type="checkbox" checked={form.hasChronicIllness} onChange={(e) => handleChange('hasChronicIllness', e.target.checked)} />
-                        <label>Has Chronic Illness</label>
+                        <div style={{display: 'flex', gap: '2rem'}}>
+                            <input type="checkbox" checked={form.isSmoker} onChange={(e) => handleChange('isSmoker', e.target.checked)} />
+                            <label>Is Smoker</label>
+                            <input type="checkbox" checked={form.hasChronicIllness} onChange={(e) => handleChange('hasChronicIllness', e.target.checked)} />
+                            <label>Has Chronic Illness</label>
+                        </div>
+                        
                     </>
                 )}
 

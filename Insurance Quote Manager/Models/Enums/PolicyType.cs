@@ -2,8 +2,8 @@
 {
     public enum PolicyType
     {
-        Home,
-        Auto,
         Life,
+        Auto,
+        Home,
     }
 }

@@ -66,6 +66,8 @@ namespace Insurance_Quote_Manager.Services
                     TotalPremium = q.TotalPremium,
                     Status = q.Status,
                     StartDate = q.StartDate,
+                    IsSmoker = q.IsSmoker,
+                    HasChronicIllness = q.HasChronicIllness,
 
                 }).ToList();
             }
